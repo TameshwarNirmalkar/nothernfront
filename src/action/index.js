@@ -2,7 +2,7 @@ export const FETCH_DATA = 'FETCH_DATA';
 export const API_ERROR = 'API_ERROR';
 
 
-const fetchPokemonSuccess = (state) => {
+export const fetchPokemonSuccess = (state) => {
     return {
         type: FETCH_DATA,
         pokemonList: state,
@@ -10,7 +10,7 @@ const fetchPokemonSuccess = (state) => {
     };
 }
 
-const fetchPokemonError = (state) => {
+export const fetchPokemonError = (state) => {
     return {
         type: API_ERROR,
         ...state,
@@ -21,7 +21,7 @@ const fetchPokemonError = (state) => {
 export const getPokemon = () => {
     return dispatch => {
         
-        fetch('https://pokeapi.co/api/v2/pokemon')
+        return fetch('https://pokeapi.co/api/v2/pokemon')
             .then(res => res.json())
             .then(res => {
                 if (res.error) {
